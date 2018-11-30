@@ -24,11 +24,11 @@
 #' @examples
 
 #' # Choosing file and saving it into a variable
-#'\dontrun{
+#' \donttest{
 #' ## Scenario 1: Picking up a file using interactive GUI dialog box:
 #' library(ezpickr)
 #' data <- pick()
-#'}
+#' }
 #' 
 #' ## Scenario 2: Picking up a file using an explicit file name ("test.sav" in the example below;
 #' ## however, you can feed other files through this function
@@ -42,6 +42,7 @@
 #' str(data)
 
 #' @author JooYoung Seo, \email{jooyoung@psu.edu}
+#' @author Soyoung Choi, \email{sxc940@psu.edu}
 
 pick <-
 function(file = NULL, ...) {   # Function starts:
