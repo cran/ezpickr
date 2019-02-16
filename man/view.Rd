@@ -4,20 +4,18 @@
 \alias{view}
 \title{Convenient function for viewing any rectangular data file in an Excel window.}
 \usage{
-view(x, mode = NULL, ...)
+view(x, ...)
 }
 \arguments{
-\item{x}{An object of class data.frame, matrix, or vector.}
+\item{x}{An object of class data.frame, matrix, table or vector.}
 
-\item{mode}{Character value for session locale and encoding; available values are: "ko1" for "CP949"; "ko2" for "UTF-8" while both change R locale into Korean (default is the current locale and encoding of your R session).}
-
-\item{...}{Any additional arguments available for \link[readr]{write_csv}.}
+\item{...}{Any additional arguments available for \link[writexl]{write_xlsx}.}
 }
 \value{
 Data object opened in a preferable spreadsheet application window.
 }
 \description{
-You can use this function for loading any data.frame, data_frame, tbl_df, matrix, vector objects into your system-default spreadsheet software (e.g., Excel). This function has been inspired by \code{\link[BrailleR]{DataViewer}} and has implemented Hadley Wickham's \code{\link[readr]{write_csv}} instead of the default \code{\link[utils]{write.csv}} for a better performance.
+You can use this function for loading any data.frame, data_frame, tbl_df, matrix, table, vector objects into your system-default spreadsheet software (e.g., Excel). This function has been inspired by \code{\link[BrailleR]{DataViewer}} and has implemented \code{\link[writexl]{write_xlsx}} instead of the default \code{\link[utils]{write.csv}} for a better performance.
 }
 \details{
 view
@@ -31,9 +29,13 @@ library(ezpickr)
 data(airquality)
 str(airquality)
 ## View your data object in your spreadsheet software:
-# Please use additional argument: either `mode="ko1"` or `mode="ko2"` for Korean dataset.
 view(airquality)
 # Then, when necessary, you can modify the opened data in the spreadsheet and save it as a new data.
+
+# You can pass a list object to the `view()` function like below:
+l <- list(iris = iris, mtcars = mtcars, chickwts = chickwts, quakes = quakes)
+view(l)
+# Then, each list item will appear in your Excel window sheet by sheet.
 }
 }
 \author{
