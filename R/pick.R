@@ -4,7 +4,7 @@
 #' @aliases pick
 #' @keywords pick
 
-#' @description You can alternatively use this function for choosing *.csv, *.csv2, *.tsv, *.txt, *.xls, *.xlsx, *.json, *.html, *.htm, *.php, *.pdf, *.doc, *.docx, *.rtf, *.RData, *.Rda, *.RDS, *.sav (SPSS), *.por, *.sas7bdat, *.sas7bcat, and *.dta files in an interactive GUI mode A file choose dialog box will be prompted.
+#' @description You can alternatively use this function for choosing *.csv, *.csv2, *.tsv, *.txt, *.xls, *.xlsx, *.json, *.html, *.htm, *.php, *.pdf, *.doc, *.docx, *.rtf, *.RData, *.Rda, *.RDS, *.sav (SPSS), *.por, *.sas7bdat, *.sas7bcat, *.dta, and *.mbox files in an interactive GUI mode A file choose dialog box will be prompted.
 
 #' @export pick
 #' @param file Either a path to a file, a connection, or literal data (either a single string or a raw vector). The default is NULL, which pops up an interactive GUI file choose dialogue box for users unless an explicit path/to/filename is given.
@@ -15,13 +15,13 @@
 #' \link[readr]{read_tsv} for 'TSV' (Tab-Separated Values) files; \link[readr]{read_file} for 'txt' (plain text) files; 
 #' \link[readxl]{read_excel} for 'Excel' files; \link[haven]{read_spss} for 'SPSS' files; \link[haven]{read_stata} for 'Stata' files; 
 #' \link[haven]{read_sas} for 'SAS' files; \link[textreadr]{read_document} for 'Microsoft Word', 'PDF', 'RTF', 'HTML', 'HTM', and 'PHP' files; 
-#' \link[jsonlite]{fromJSON} for 'JSON' files; \link[base]{readRDS} for 'RDS' files; \link[base]{load} for 'RDA' and 'RDATA' files.
+#' \link[jsonlite]{fromJSON} for 'JSON' files; \link[mboxr]{read_mbox} for 'mbox' files; \link[base]{readRDS} for 'RDS' files; \link[base]{load} for 'RDA' and 'RDATA' files.
 
 #' @details
 #' See example below.
 
 #' @return tibble (table data.frame) object of the chosen rectangular data file will be returned.
-#' @seealso [picko] for more convenient use for Korean users.
+#' @seealso \link[ezpickr]{picko} for Korean users.
 #' @examples
 #' # Choosing file and saving it into a variable
 #' ## Scenario 1: Picking up a file using interactive GUI dialog box:
@@ -49,33 +49,37 @@
 pick <-
 function(file = NULL, mode = NULL, ...) {   # Function starts:
 
-	if (is.null(file)) {
-		fullFile <- file.choose()
-	} else {
-		fullFile <- file
-	}
-
 	if(!is.null(mode)) {
 		if(mode == "ko1") {
 			Sys.setlocale("LC_ALL", "Korean")
 			options(encoding="CP949")
-			fullFile <- iconv(fullFile, from="UTF-8", to="CP949")
+#			if(is.null(file)) {
+#				fullFile <- enc2native(fullFile)
+#			}
 		} else if(mode == "ko2") {
 			Sys.setlocale("LC_ALL", "Korean")
 			options(encoding="UTF-8")
-			fullFile <- iconv(fullFile, from="UTF-8", to="CP949")
+#			if(is.null(file)) {
+#				fullFile <- enc2native(fullFile)
+#			}
 		}
 	}
 
-	fileExt <- tools::file_ext(fullFile)
+	if (is.null(file)) {
+		fullFile <- enc2native(file.choose())
+	} else {
+		fullFile <- file
+	}
+
+	fileExt <- tolower(tools::file_ext(fullFile))
 
 	switch(fileExt, 
 		"csv" = readr::read_csv(file = fullFile, ...), 
 		"csv2" = readr::read_csv2(file = fullFile, ...), 
 		"tsv" = readr::read_tsv(file = fullFile, ...), 
 		"txt" = tibble::rowid_to_column(tibble::tibble(text = readr::read_file(fullFile, ...)), "paragraph"), 
-		"xlsx" = if(length(readxl::excel_sheets(path=fullFile)) > 1) {lapply(readxl::excel_sheets(path=fullFile), readxl::read_excel, path=fullFile, ...)} else {readxl::read_excel(fullFile, ...)}, 
-		"xls" = if(length(readxl::excel_sheets(path=fullFile)) > 1) {lapply(readxl::excel_sheets(path=fullFile), readxl::read_excel, path=fullFile, ...)} else {readxl::read_excel(fullFile, ...)}, 
+		"xlsx" = if(length(readxl::excel_sheets(path=fullFile)) > 1) {purrr::map(purrr::set_names(readxl::excel_sheets(path = fullFile)), readxl::read_excel, path = fullFile, ...)} else {readxl::read_excel(fullFile, ...)}, 
+		"xls" = if(length(readxl::excel_sheets(path=fullFile)) > 1) {purrr::map(purrr::set_names(readxl::excel_sheets(path = fullFile)), readxl::read_excel, path = fullFile, ...)} else {readxl::read_excel(fullFile, ...)}, 
 		"json" = tibble::tibble(jsonlite::fromJSON(fullFile, ...)), 
 		"rdata" = load(file = fullFile, ...), 
 		"rda" = tibble::tibble(load(file = fullFile, ...)), 
@@ -92,6 +96,7 @@ function(file = NULL, mode = NULL, ...) {   # Function starts:
 		"rtf" = tibble::rowid_to_column(tibble::tibble(text = textreadr::read_rtf(fullFile, ...)), "paragraph"), 
 		"doc" = tibble::rowid_to_column(tibble::tibble(text = textreadr::read_doc(fullFile, ...)), "paragraph"), 
 		"docx" = tibble::rowid_to_column(tibble::tibble(text = textreadr::read_docx(fullFile, ...)), "paragraph"), 
+		"mbox" = mboxr::read_mbox(fullFile, ...), 
 		stop("Sorry, but the file you have just chosen is not supported in this function. Report on this issue to the author (JooYoung Seo) at \n
 		https://github.com/jooyoungseo/ezpickr/issues. :)")
 	)
