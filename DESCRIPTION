@@ -1,7 +1,7 @@
 Package: ezpickr
 Title: Easy Data Import Using GUI File Picker and Seamless
         Communication Between an Excel and R
-Version: 1.0.2
+Version: 1.0.3
 Author: JooYoung Seo [aut, cre],
   Soyoung Choi [aut],
   hyun seung Lee [ctb],
@@ -24,6 +24,6 @@ RoxygenNote: 6.1.1.9000
 Suggests: testthat, knitr, rmarkdown, striprtf, xml2, tesseract, dplyr,
         rvest, docxtractr, antiword, covr
 NeedsCompilation: no
-Packaged: 2019-02-24 21:59:43 UTC; JooYoung
+Packaged: 2019-02-28 19:46:10 UTC; JooYoung
 Repository: CRAN
-Date/Publication: 2019-02-24 22:10:02 UTC
+Date/Publication: 2019-02-28 22:20:05 UTC

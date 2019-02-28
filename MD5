@@ -1,9 +1,9 @@
-126b069a0629b8746a41897f8ee30600 *DESCRIPTION
+bf65a4eba59436af6e42b7ee14fdc5a5 *DESCRIPTION
 cdfdad76458ed5f5b5a9ae9a211b897a *NAMESPACE
-d23df16606ace4ffc3d3ccbfdf258d56 *NEWS.md
+64d91132509a7fa28ff5e1444ba2d7a4 *NEWS.md
 07930eee18bbe8154a2d4c8627536bea *R/deprecate.R
 0dcf6de6dd86754a9ca6d93149ef1d2d *R/ezpickr-package.R
-5bb62cf521428a7074067d00e9eccb7d *R/pick.R
+19beda837873f50c731011812d74a730 *R/pick.R
 59c133e4a37f3d58c4e10fcf55ebc96b *R/picko.R
 ad3f3c64fcdb96e66b1859bd35c48478 *R/utils-pipe.R
 1c62e9819f2a12f79402359a9710496d *R/view.R
@@ -11,10 +11,10 @@ ad3f3c64fcdb96e66b1859bd35c48478 *R/utils-pipe.R
 49352364946fdb9ad1ecf7676053ae76 *R/zzz.R
 9e1679ca759caed823e3dfe5ba681292 *README.md
 c68c83f97d01dd0565300433f35bcd71 *build/vignette.rds
-d23df16606ace4ffc3d3ccbfdf258d56 *inst/NEWS
+64d91132509a7fa28ff5e1444ba2d7a4 *inst/NEWS
 a1a82ab6c35e0e8d820ed54465ef584e *inst/doc/ezpickr_vignette.R
 0078acf0ad691a9adc9881495d4de6e8 *inst/doc/ezpickr_vignette.Rmd
-5dc6adfe3b4179b19d210932db5c8077 *inst/doc/ezpickr_vignette.html
+67d5d18108853f9b7ed84bfea1ba02bb *inst/doc/ezpickr_vignette.html
 306f0ac358234368d033ed5b81149ff4 *inst/extdata/airquality.sav
 c7d9e69196f437955d6faf0992cc80d4 *man/ezpickr-package.Rd
 3eb35926348611ce1ffcea55a4b13109 *man/pick.Rd
