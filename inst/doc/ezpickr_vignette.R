@@ -5,11 +5,11 @@ knitr::opts_chunk$set(
 )
 
 ## ---- eval=F-------------------------------------------------------------
-#  if(!require(devtools)) {
-#  install.packages("devtools")
+#  if(!require(remotes)) {
+#  install.packages("remotes")
 #  }
 #  
-#  devtools::install_github('jooyoungseo/ezpickr')
+#  remotes::install_github('jooyoungseo/ezpickr')
 
 ## ---- eval=F-------------------------------------------------------------
 #  install.packages("ezpickr")
