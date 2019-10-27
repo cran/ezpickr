@@ -1,20 +1,20 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ---- eval=F-------------------------------------------------------------
+## ---- eval=F------------------------------------------------------------------
 #  if(!require(remotes)) {
 #  install.packages("remotes")
 #  }
 #  
 #  remotes::install_github('jooyoungseo/ezpickr')
 
-## ---- eval=F-------------------------------------------------------------
+## ---- eval=F------------------------------------------------------------------
 #  install.packages("ezpickr")
 
-## ----example1, eval=F----------------------------------------------------
+## ----example1, eval=F---------------------------------------------------------
 #  library(ezpickr)
 #  
 #  # Choosing file and saving it into a variable
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 #  # Now you can use the imported file as a tibble data frame.
 #  str(data)
 
-## ----example2, eval=F----------------------------------------------------
+## ----example2, eval=F---------------------------------------------------------
 #  library(ezpickr)
 #  
 #  data(airquality)
