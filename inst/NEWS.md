@@ -1,9 +1,6 @@
-# ezpickr 2.1.0
+# ezpickr (development version)
 
-* To follow the CRAN policy, removed the GitHub `subtools` dependency that was experimentally supporting subtitle files (e.g., "*.srt"; "*.vtt"; "*.sub"; "*.ass") in `pick()` function.
-* Nested data.frame objects alike are unnested in `viewxl()` function.
-* Cleaned up source code indents for better readability.
-* Reduced package title less than 65 characters.
+* Experimentally supported subtitle files (e.g., "*.srt"; "*.vtt"; "*.sub"; "*.ass") in `pick()` function using `subtools` GitHub package.
 
 
 # ezpickr 2.0.0

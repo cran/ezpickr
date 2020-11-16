@@ -1,7 +1,6 @@
 Package: ezpickr
-Title: Easy Data Import Using GUI File Picker and Seamless
-        Communication Between an Excel and R
-Version: 2.0.0
+Title: Easy Data Import Using GUI File Picker
+Version: 2.1.0
 Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu", comment = c(ORCID = "0000-0002-4064-6012")),
     person("Soyoung", "Choi", role = "aut", email = "sxc940@psu.edu", comment = c(ORCID = "0000-0002-0998-3352")),
     person("hyun seung", "Lee", role = "ctb", email = "go4arsenal@gmail.com"),
@@ -14,15 +13,15 @@ BugReports: https://github.com/jooyoungseo/ezpickr/issues
 Encoding: UTF-8
 LazyData: true
 Imports: haven, jsonlite, readxl, magrittr, textreadr, tibble, stringr,
-        writexl, purrr, mboxr, vroom, rmarkdown, utils
-RoxygenNote: 7.0.0.9000
+        writexl, purrr, mboxr, vroom, rmarkdown, utils, tidyr
+RoxygenNote: 7.1.1
 Suggests: testthat, knitr, striprtf, xml2, dplyr, rvest, antiword, covr
 NeedsCompilation: no
-Packaged: 2019-11-17 02:24:56 UTC; JooYoung
+Packaged: 2020-11-15 15:12:09 UTC; sjysk
 Author: JooYoung Seo [aut, cre] (<https://orcid.org/0000-0002-4064-6012>),
   Soyoung Choi [aut] (<https://orcid.org/0000-0002-0998-3352>),
   hyun seung Lee [ctb],
   Jonghoen Kim [ctb]
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Repository: CRAN
-Date/Publication: 2019-11-17 05:20:03 UTC
+Date/Publication: 2020-11-16 08:10:18 UTC
